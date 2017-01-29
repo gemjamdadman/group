@@ -18,6 +18,7 @@
 <hr>
 <p>  © Andy Lamb, Ben Perrin, Michael Pham, Ha Nguyen, Jack O'Halloran<br>
   Computing group project: University of Northampton 2017
+</p>
 </div>
 </body>
 </html>
