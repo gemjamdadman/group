@@ -15,16 +15,11 @@ $results = $pdo->query('SELECT * FROM BOOK');
 
 foreach ($results as $row)
 {
- echo '<p>' . $row['TITLE'] . '</p>';
+ echo '<div class = "dataSearch"><p>' . $row['TITLE'] . '</p></div>';
 }
 
 ?>
 
-<div class = "dataSearch">
-<p>
-linked results here
-</p>
-</div>
 
 <?php
 require 'foot.php';
