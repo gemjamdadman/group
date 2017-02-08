@@ -5,6 +5,7 @@
   <a href = "info.php">Ordering</a><br>
   <a href = "info.php">Delivery</a></p>
 <p class = "info">
+ <a href = "feedback.php">Feedback</a></br>
   <a href = "info.php">Returns</a></br>
   <a href = "info.php">Terms & Conditions</a></br>
   <a href = "info.php">Contact us</a></br>
