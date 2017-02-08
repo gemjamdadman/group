@@ -15,7 +15,7 @@ require 'head.php';
 	 
     <br>Feedback Description:<br />
     <!-- creates heading -->
-    <textarea cols="80" name="message_text" placeholder="write a comment" rows="10"></textarea>
+    <textarea cols="80" name="FEEDBACK_DESCRIPTION" placeholder="write a comment" rows="10"></textarea>
     <!-- creates a input to put data inside-->
    
     <p>Click to submit <input name="customer_submit" type="submit" value="Submit"></p>
@@ -24,11 +24,8 @@ require 'head.php';
 </div>
 <?php
 require 'db.php';
-$stmt = $pdo->prepare('INSERT INTO person (CUSTOMER_EMAIL, FEEDBACK_DESCRIPTION) VALUES (:CUSTOMER_EMAIL, :FEEDBACK_DESCRIPTION )');
-$criteria = [
- 'CUSTOMER_EMAIL' => $_POST['CUSTOMER_EMAIL'],
- 'FEEDBACK_DESCRIPTION' => $_POST['FEEDBACK_DESCRIPTION']
-];
+$stmt = $pdo->prepare('INSERT INTO FEEDBACK (CUSTOMER_EMAIL, FEEDBACK_DESCRIPTION) VALUES (:CUSTOMER_EMAIL, :FEEDBACK_DESCRIPTION )');
+$criteria = ['CUSTOMER_EMAIL' => $_POST['CUSTOMER_EMAIL'], 'FEEDBACK_DESCRIPTION' => $_POST['FEEDBACK_DESCRIPTION']];
 $stmt->execute($criteria);
 ?>
 <?php
