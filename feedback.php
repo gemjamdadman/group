@@ -22,12 +22,17 @@ require 'head.php';
     <!-- creates a submit button -->
   </form>
 </div>
+
 <?php
 require 'db.php';
+?>
+<?php
 $stmt = $pdo->prepare('INSERT INTO FEEDBACK (CUSTOMER_EMAIL, FEEDBACK_DESCRIPTION) VALUES (:CUSTOMER_EMAIL, :FEEDBACK_DESCRIPTION )');
 $criteria = ['CUSTOMER_EMAIL' => $_POST['CUSTOMER_EMAIL'], 'FEEDBACK_DESCRIPTION' => $_POST['FEEDBACK_DESCRIPTION']];
 $stmt->execute($criteria);
 ?>
+
 <?php
 require 'foot.php';
+
  ?>
