@@ -3,7 +3,7 @@ require 'head.php';
 ?>
 
 <div class = "dataSearch">
-<form action="" method="post">
+<form action="" method="POST">
     <!-- creates the form of a customer review -->
 
 
