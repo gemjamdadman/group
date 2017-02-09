@@ -2,15 +2,16 @@
 require 'head.php';
 ?>
 
-<p class = "feature"><a href="addProduct.php">Add Book</a>
-<a href="addCategory.php">Add Category</a>
-<a href="editProduct.php">Edit Book</a>
-<a href="editCategory.php">Edit Category</a>
-<a href="deleteProduct.php">Delete Book</a>
-<a href="deleteCategory.php">Delete Category</a>
-<a href="deleteCategory.php">Add Administrator</a>
-<a href="deleteCategory.php">Add Staff</a>
-<a href="deleteCategory.php">Delete Review</a>
+<p class = "feature">
+<a href="list_book.php">list Book</a>
+<a href="add_book.php">Add Book</a>
+<a href="delete_book.php">Delete Book</a>
+<a href="add_cat.php">Add Category</a>
+<a href="edit_cat.php">Edit Category</a>
+<a href="delete_cat.php">Delete Category</a>
+<a href="add_admin.php">Add Administrator</a>
+<a href="add_staff.php">Add Staff</a>
+<a href="delete_review.php">Delete Review</a>
 <a href="index.php">Quit & Return"</a></p>
 
 
