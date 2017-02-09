@@ -1,3 +1,15 @@
+<?php
+$server = '194.81.104.22';
+$username = 'gp_general_1617';
+$password = 'general';
+
+$schema = 'db_general_1617';
+
+$pdo = new PDO('mysql:dbname=' . $schema . ';host=' . $server, $username, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
+ ?>
+
+
 <!DOCTYPE html>
 <head>
   <meta charset = "utf-8">
@@ -36,27 +48,19 @@
             <img src = "images/wishlist.png" alt = "wishlist"><br>Wishlist
         </a>
     </p>
-
+<?php
+  $bookCat= ['Databases', 'Networking', 'Java', 'Systems', 'Web Design', 'Software Engineering', 'Problem Solving', 'Other'];
+?>
   <div class = "nav">
     <ul>
-      <li>
-        <a class="active" href="index.php">Home</a> </li>
-
-      <li>
-        <a href="dataSearch.php">Databases</a> </li>
-      <li>
-        <a href="dataSearch.php">Networking</a> </li>
-      <li>
-        <a href="dataSearch.php">Java</a> </li>
-      <li>
-        <a href="dataSearch.php">Systems</a> </li>
-      <li>
-        <a href="dataSearch.php">Web Design</a> </li>
-      <li>
-        <a href="dataSearch.php">Software Engineering</a> </li>
-      <li>
-        <a href="dataSearch.php">Problem Solving</a> </li>
-      <li>
-        <a href="dataSearch.php">Other</a> </li>
+      <li><a class="active" href="index.php">Home</a> </li>
+      <li><a href="dataSearch.php?bookCat=Databases"><?php echo $bookCat[0] ?></a></li>
+      <li><a href="dataSearch.php?bookCat=Networking"><?php echo $bookCat[1] ?></a></li>
+      <li><a href="dataSearch.php?bookCat=Java"><?php echo $bookCat[2] ?></a></li>
+      <li><a href="dataSearch.php?bookCat=Systems"><?php echo $bookCat[3] ?></a></li>
+      <li><a href="dataSearch.php?bookCat=WebDesign"><?php echo $bookCat[4] ?></a></li>
+      <li><a href="dataSearch.php?bookCat=SoftEng"><?php echo $bookCat[5] ?></a></li>
+      <li><a href="dataSearch.php?bookCat=Problem"><?php echo $bookCat[6] ?></a></li>
+      <li><a href="dataSearch.php?bookCat=Other"><?php echo $bookCat[7] ?></a></li>
     </ul>
   </div>
