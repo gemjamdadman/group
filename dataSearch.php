@@ -15,10 +15,10 @@ if (isset($_GET['bookCat'])){
     switch ($_GET['bookCat']) {
 
       case 'Databases':
-        $results = $pdo->query('SELECT * FROM BOOK WHERE category = "Databases"');
+        $results = $pdo->query('SELECT * FROM BOOK WHERE category = "Database"');
             foreach ($results as $row)
             {
-                echo '<div class = "dataSearch"><p>' . $row['TITLE'] . $row['AUTHOR'] . '</p>></div>';
+                echo '<div class = "dataSearch"><p>' . '<img src= ' . $row['IMAGE'] . '>' . $row['TITLE'] . $row['AUTHOR'] . '</p>></div>';
             }
         break;
 
@@ -27,7 +27,7 @@ if (isset($_GET['bookCat'])){
 
             foreach ($results as $row)
             {
-              echo '<div class = "dataSearch"><p>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
+              echo '<div class = "dataSearch"><p>' . '<img src= ' . $row['IMAGE'] . '>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
             }
         break;
 
@@ -36,16 +36,16 @@ if (isset($_GET['bookCat'])){
 
             foreach ($results as $row)
             {
-              echo '<div class = "dataSearch"><p>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
+              echo '<div class = "dataSearch"><p>' . '<img src= ' . $row['IMAGE'] . '>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
             }
         break;
 
       case 'Systems':
-          $results = $pdo->query('SELECT * FROM BOOK WHERE category = "Systems"');
+          $results = $pdo->query('SELECT * FROM BOOK WHERE category = "Operating Systems"');
 
             foreach ($results as $row)
             {
-              echo '<div class = "dataSearch"><p>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
+              echo '<div class = "dataSearch"><p>' . '<img src= ' . $row['IMAGE'] . '>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
             }
         break;
 
@@ -54,7 +54,7 @@ if (isset($_GET['bookCat'])){
 
             foreach ($results as $row)
             {
-              echo '<div class = "dataSearch"><p>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
+              echo '<div class = "dataSearch"><p>' . '<img src= ' . $row['IMAGE'] . '>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
             }
         break;
 
@@ -63,7 +63,7 @@ if (isset($_GET['bookCat'])){
 
             foreach ($results as $row)
             {
-              echo '<div class = "dataSearch"><p>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
+              echo '<div class = "dataSearch"><p>' . '<img src= ' . $row['IMAGE'] . '>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
             }
         break;
 
@@ -81,7 +81,7 @@ if (isset($_GET['bookCat'])){
 
             foreach ($results as $row)
             {
-              echo '<div class = "dataSearch"><p>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
+              echo '<div class = "dataSearch"><p>' . '<img src= ' . $row['IMAGE'] . '>' . $row['TITLE'] . ' - ' . $row['AUTHOR'] . '</p></div>';
             }
         break;
 
