@@ -14,11 +14,17 @@ if (isset($_POST['submit']))
  // gets the database connection code
    // inserts the data to the admin table
 
-   $stmt = $pdo->prepare('INSERT INTO admins ( username, password)
-                   VALUES (:username, :password)');
-   $hash = password_hash($_POST['password'], PASSWORD_DEFAULT); //hashs the password and gets data from form
-   $criteria = ['username' => $_POST['username'], //gets the data from the form
-   'password' => $hash
+   $stmt = $pdo->prepare('INSERT INTO STAFF ( STAFF_ID, FIRST_NAME, SURNAME, ROLE, USERNAME, PASSWORD)
+                   VALUES (:STAFF_ID, :FIRST_NAME, :SURNAME, :ROLE, :USERNAME, :PASSWORD)');
+   $hash = password_hash($_POST['PASSWORD'], PASSWORD_DEFAULT); //hashs the password and gets data from form
+   $criteria = 
+  $criteria = [
+'STAFF_ID' => $_POST['STAFF_ID'], 
+'FIRST_NAME' => $_POST['FIRST_NAME'] , 
+'SURNAME' => $_POST['SURNAME'] , 
+'ROLE' => $_POST['ROLE'],
+'USERNAME' => $_POST['USERNAME'], 
+'PASSWORD' => $hash
 
    // gets the data from the form
 
@@ -31,10 +37,12 @@ if (isset($_POST['submit']))
 ?>
 <div class = "dataSearch">
    <form action="add_admin.php" method="post">
-     <input type = "text" name = "email" placeholder = "Username">
-    <input type = "text" name = "email" placeholder = "Confirm Username"></br>
-    <input type = "password" name = "password" placeholder = "Password">
-    <input type = "password" name = "validate" placeholder = "Confirm Password">
+    <input type = "text" name = "STAFF_ID" placeholder = "STAFF_ID">
+	<input type = "text" name = "FIRST_NAME" placeholder = "FIRST_NAME">
+	<input type = "text" name = "SURNAME" placeholder = "SURNAME">
+	<input type = "text" name = "ROLE" placeholder = "ROLE">
+     <input type = "text" name = "USERNAME" placeholder = "USERNAME">
+    <input type = "password" name = "PASSWORD" placeholder = "PASSWORD">
     <input type = "submit" name = "submit" value= "Add">
    </form>
    </div>
