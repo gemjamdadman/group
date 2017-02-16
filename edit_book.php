@@ -27,7 +27,7 @@ foreach ($results as $row) {
 ?>
 <div class = "dataSearch">
       
-     <form action="edit_book" enctype="multipart/form-data" method="post">
+     <form action="edit_book.php" method="post">
 	 
         <input type="hidden" name="originalISBN" value="<?php echo $row['ISBN']; ?>" />
          <h2>Edit BOOK</h2>
@@ -49,17 +49,20 @@ foreach ($results as $row) {
          <br />
          SYNOPSIS:
          <br />
-          <textarea cols="80" type="text" name="SYNOPSIS" rows="10"  value="<?php echo $row['SYNOPSIS']; ?>"></textarea>
-		  <br />    
+<textarea name="SYNOPSIS" cols="66" rows="10"><?php echo $row['SYNOPSIS'];?></textarea>
+          		  <br />    
 		 CATEGORY:
          
           <input name="CATEGORY" type="text"  value="<?php echo $row['CATEGORY']; ?>">
          <br />
 		 PUBLIC_DATE:
    
-          <input name="PUBLIC_DATE" type="text"  value="<?php echo $row['PUBLIC_DATE']; ?>">
+          <input name="PUBLICATION_DATE" type="text"  value="<?php echo $row['PUBLICATION_DATE']; ?>">
          <br />
-         <p>Click to submit <input name="send" type="submit" value="Submit"></p>
+		 QUANTITY
+		 <input name="QUANTITY" type="text"  value="<?php echo $row['QUANTITY']; ?>">
+         <br />
+         <p>Click to submit <input name="send" type="submit" value="Save"></p>
       </form>
   </div>
 <div class = "dataSearch">
@@ -77,7 +80,8 @@ else {
 				  PRICE= :PRICE,
 				  SYNOPSIS= :SYNOPSIS,
 				  CATEGORY= :CATEGORY,
-				  PUBLICE_DATE= :PUBLIC_DATE
+				  PUBLICATION_DATE= :PUBLICATION_DATE,
+				  QUANTITY= :QUANTITY
 				 WHERE ISBN= :originalISBN
 	');
 
@@ -88,12 +92,13 @@ else {
 		'PRICE' => $_POST['PRICE'],
 		'SYNOPSIS' => $_POST['SYNOPSIS'],
 		'CATEGORY' => $_POST['CATEGORY'],
-		'PUBLICE_DATE' => $_POST['PUBLICE_DATE'],
+		'PUBLICATION_DATE' => $_POST['PUBLICATION_DATE'],
+		'QUANTITY' => $_POST['QUANTITY'],
 		'originalISBN' => $_POST['originalISBN']
 	];
 
 	$stmt->execute($criteria);
-	echo '<p>Record updated</p>';
+	header('Location: list_book.php');
 }
 ?>
 
