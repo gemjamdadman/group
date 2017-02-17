@@ -32,13 +32,11 @@ else {
 }
 
 
-echo '<ul>';
+echo '<div class = "dataSearch"><ul>';
 foreach ($stmt as $row) {
-	echo '<li><a href="edit_book.php?book=' . $row['ISBN'] . '">' . $row['ISBN'] . ' ' . $row['TITLE'] . $row['AUTHOR'] . '</li>'; 
+	echo '<li><a href="edit_book.php?book=' . $row['ISBN'] . '">' . $row['ISBN'] . ' ' . $row['TITLE'] . ' ' . $row['AUTHOR'] . '</li>'; 
 }
-
-
-echo '</ul>';
+echo '</ul></div>';
 
 
 ?>
