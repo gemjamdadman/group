@@ -19,7 +19,7 @@ if (isset($_GET['bookCat'])){
             foreach ($results as $row)
 				{
 					echo '<div class = "dataSearch"><p>
-					<ul><img src= ' . $row['IMAGE'] . '>' . 
+				<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .  
 					'<ul>Title: ' . $row['TITLE'] . 
 					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
 				}
@@ -30,7 +30,7 @@ if (isset($_GET['bookCat'])){
             foreach ($results as $row)
 				{
 					echo '<div class = "dataSearch"><p>
-					<ul><img src= ' . $row['IMAGE'] . '>' . 
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .   
 					'<ul>Title: ' . $row['TITLE'] .
 					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
 				}
@@ -42,7 +42,7 @@ if (isset($_GET['bookCat'])){
             foreach ($results as $row)
 				{
 					echo '<div class = "dataSearch"><p>
-					<ul><img src= ' . $row['IMAGE'] . '>' . 
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .  
 					'<ul>Title: ' . $row['TITLE'] . 
 					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
 				}
@@ -54,7 +54,7 @@ if (isset($_GET['bookCat'])){
             foreach ($results as $row)
 				{
 					echo '<div class = "dataSearch"><p>
-					<ul><img src= ' . $row['IMAGE'] . '>' . 
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' . 
 					'<ul>Title: ' . $row['TITLE'] . 
 					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
 				}
@@ -65,7 +65,7 @@ if (isset($_GET['bookCat'])){
             foreach ($results as $row)
 				{
 					echo '<div class = "dataSearch"><p>
-					<ul><img src= ' . $row['IMAGE'] . '>' . 
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .  
 					'<ul>Title: ' . $row['TITLE'] . 
 					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
 				}
@@ -77,7 +77,7 @@ if (isset($_GET['bookCat'])){
             foreach ($results as $row)
 			  {
 					echo '<div class = "dataSearch"><p>
-					<ul><img src= ' . $row['IMAGE'] . '>' . 
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .  
 					'<ul>Title: ' . $row['TITLE'] . 
 					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
 				}
@@ -88,7 +88,7 @@ if (isset($_GET['bookCat'])){
             foreach ($results as $row)
             {
 					echo '<div class = "dataSearch"><p>
-					<ul><img src= ' . $row['IMAGE'] . '>' . 
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .   
 					'<ul>Title: ' . $row['TITLE'] . 
 					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
             }

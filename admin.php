@@ -8,7 +8,7 @@ require 'head.php';
 	<a href="delete_book.php">Delete Book</a>
 	<a href="add_admin.php">Add Staff</a>
 	<a href="delete_review.php">Delete Review</a>
-	<a href="index.php">Quit & Return"</a>
+	<a href="index.php">Quit & Return</a>
 </p>
 
 

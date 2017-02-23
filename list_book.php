@@ -31,13 +31,14 @@ else {
 	$stmt->execute();
 }
 
+	
+		echo '<div class = "dataSearch">';	
+	foreach ($stmt as $row) {
 
-echo '<div class = "dataSearch"><ul>';
-foreach ($stmt as $row) {
-	echo '<li><a href="edit_book.php?book=' . $row['ISBN'] . '">' . $row['ISBN'] . ' ' . $row['TITLE'] . ' ' . $row['AUTHOR'] . '</li>'; 
+		echo '<ul><a href="edit_book.php?book=' . $row['ISBN'] . '">' . $row['ISBN'] . ' ' . $row['TITLE'] . ' ' . $row['AUTHOR'] . "</ul>"; 
+
 }
-echo '</ul></div>';
-
+		echo '</div>';	
 
 ?>
 <?php

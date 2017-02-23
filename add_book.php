@@ -1,22 +1,25 @@
 
 <?php
-require 'head.php'; ?>
-<?php
+require 'head.php';
+require ('db.php');
 
 if (isset($_POST['send']))
    {
-   require ('db.php');
-   $stmt = $pdo->prepare('INSERT INTO BOOK (ISBN, TITLE, AUTHOR, PRICE, SYNOPSIS, IMAGE, CATEGORY, PUBLICATION_DATE) VALUES (:ISBN, :TITLE, :AUTHOR, :PRICE :SYNOPSIS, :IMAGE, :CATEGORY, :PUBLIC_DATE )');
+   $stmt = $pdo->prepare('INSERT INTO BOOK (ISBN, TITLE, AUTHOR, PRICE, SYNOPSIS, IMAGE, CATEGORY, PUBLICATION_DATE, QUANTITY)
+								 VALUES (:ISBN, :TITLE, :AUTHOR, :PRICE, :SYNOPSIS, :IMAGE, :CATEGORY, :PUBLICATION_DATE, :QUANTITY )');
 	$criteria = [
 	'ISBN' => $_POST['ISBN'], 
 	'TITLE' => $_POST['TITLE'] , 
 	'AUTHOR' => $_POST['AUTHOR'] , 
 	'PRICE' => $_POST['PRICE'],
 	'SYNOPSIS' => $_POST['SYNOPSIS'], 
-	'IMAGE' => $_POST['IMAGE'], 
+	'IMAGE' => 'images/' . $_POST['IMAGE'] . '.jpg', 	
 	'CATEGORY' => $_POST['CATEGORY'],
-	'PUBLICATION_DATE' => $_POST['PUBLICATION_DATE']];
+	'PUBLICATION_DATE' => $_POST['PUBLICATION_DATE'],
+	'QUANTITY' => $_POST['QUANTITY']];
 	$stmt->execute($criteria);
+	
+		echo '<a href="admin.php" class = "dataSearch">Book has been added. Click here to return to the admin page</a>';
    }
    else
    {
@@ -41,12 +44,14 @@ if (isset($_POST['send']))
         <br/>
         <textarea cols="80" name="SYNOPSIS" placeholder="write a comment" rows="10"></textarea>
 		<br/>
-		IMAGE: <input name="IMAGE" type="file">
+		IMAGE: <input name="IMAGE" type="text">
         <br/>
 		CATEGORY: <input name="CATEGORY" type="text">
         <br/>
 		PUBLIC_DATE: <input name="PUBLICATION_DATE" type="date">
         <br/>
+		QUANTITY: <input name="QUANTITY" type="text">
+		<br/>
         <p>Click to submit <input name="send" type="submit" value="Submit"></p>
       </form>
   </div>

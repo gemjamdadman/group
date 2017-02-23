@@ -1,11 +1,10 @@
 <?php
-require 'head.php';
-?>
-<?php
-
+	require 'head.php';
+	require 'db.php';
+	session_start();
 if (isset($_POST['REGISTER']))
    {
-	require 'db.php';
+
 	$stmt = $pdo->prepare('INSERT INTO CUSTOMER (FIRST_NAME, SURNAME, DATE_OF_BIRTH, EMAIL, ADDRESS, PASSWORD)
                 VALUES (:FIRST_NAME, :SURNAME, :DOB, :EMAIL, :ADDRESS, :PASSWORD)');
 	$hash = password_hash($_POST['PASSWORD'], PASSWORD_DEFAULT);
@@ -24,14 +23,49 @@ if (isset($_POST['REGISTER']))
 	}
 	else
 	{
+		if (isset($_POST['LOGIN']))
+		{
+			$stmt = $pdo->prepare('SELECT * FROM CUSTOMER WHERE EMAIL = :EMAIL');  
+			
+			$criteria = [
+				'EMAIL' => $_POST['EMAIL']
+			];
+
+			$stmt->execute($criteria);
+
+			$row = $stmt->fetch();
+
+			if (password_verify($_POST['PASSWORD'], $row['PASSWORD'])) {
+				$_SESSION['loggedin'] = $row['EMAIL'];
+				echo 'You are now logged in, <a href="index.php">Go to index.php</a>';
+			}
+		}
+		if (isset($_POST['LOGIN']))
+		{
+			$stmt = $pdo->prepare('SELECT * FROM STAFF WHERE EMAIL = :EMAIL');  
+			
+			$criteria = [
+				'EMAIL' => $_POST['EMAIL']
+			];
+
+			$stmt->execute($criteria);
+
+			$row = $stmt->fetch();
+
+			if (password_verify($_POST['PASSWORD'], $row['PASSWORD'])) {
+				$_SESSION['loggedin'] = $row['EMAIL'];
+				 header('Location: http://194.81.104.22/~15414599/admin.php ');//goes to the admin area 
+			}
+		}
+
 ?>
 <div class = "dataSearch">
 
-  <form action ="index.php" method = "POST" class = "log">
+  <form action ="register.php" method = "POST" class = "log">
     <label>Existing Members please sign in below</label><br>
-    <input type = "text" name = "email" placeholder = "Username">
-    <input type = "password" name = "password" placeholder = "Password">
-    <input type = "submit" name = "submit" value= "Log In">
+    <input type = "text" name = "EMAIL" placeholder = "Username">
+    <input type = "password" name = "PASSWORD" placeholder = "Password">
+    <input type = "submit" name = "LOGIN" value= "Log In">
   </form>
 
 

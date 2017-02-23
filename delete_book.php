@@ -7,6 +7,8 @@ if (isset($_POST['submit'])) {
 	unset($_POST['submit']);
 	$delete->execute($_POST);
 	
+		echo '<a href="admin.php" class = "dataSearch">Book has been deleted. Click here to return to the admin page</a>';
+	
 	}
    else
    {
