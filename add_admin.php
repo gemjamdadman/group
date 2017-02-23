@@ -14,14 +14,14 @@ if (isset($_POST['submit']))
  // gets the database connection code
    // inserts the data to the admin table
 
-   $stmt = $pdo->prepare('INSERT INTO STAFF (FIRST_NAME, SURNAME, ROLE, USERNAME, PASSWORD)
-                   VALUES (:FIRST_NAME, :SURNAME, :ROLE, :USERNAME, :PASSWORD)');
+   $stmt = $pdo->prepare('INSERT INTO STAFF (FIRST_NAME, SURNAME, ROLE, EMAIL, PASSWORD)
+                   VALUES (:FIRST_NAME, :SURNAME, :ROLE, :EMAIL, :PASSWORD)');
    $hash = password_hash($_POST['PASSWORD'], PASSWORD_DEFAULT); //hashs the password and gets data from form
 	$criteria = [
 	'FIRST_NAME' => $_POST['FIRST_NAME'] , 
 	'SURNAME' => $_POST['SURNAME'] , 
 	'ROLE' => $_POST['ROLE'],
-	'USERNAME' => $_POST['USERNAME'], 
+	'EMAIL' => $_POST['EMAIL'], 
 	'PASSWORD' => $hash
 
    // gets the data from the form
@@ -40,7 +40,7 @@ if (isset($_POST['submit']))
 	<select name="ROLE">
 		<option value ="Staff">Staff</option>
 		<option value ="Admin">Admin</option>
-    <input type = "text" name = "USERNAME" placeholder = "USERNAME">
+    <input type = "text" name = "EMAIL" placeholder = "EMAIL">
     <input type = "password" name = "PASSWORD" placeholder = "PASSWORD">
     <input type = "submit" name = "submit" value= "Add">
    </form>
