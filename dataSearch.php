@@ -19,10 +19,11 @@ if (isset($_GET['bookCat'])){
         $results = $pdo->query('SELECT * FROM BOOK WHERE category = "Database"');
             foreach ($results as $row)
 				{
-					echo '<div class = "dataSearch"><p>
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
 				<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
 					'<ul>Title: ' . $row['TITLE'] .
-					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
+					'<ul>Author: ' . $row['AUTHOR'] . '</div></a>';
+					//'<ul><a href="dataSearch.php?book=' . $row['ISBN'] . '">' . $row['TITLE'] . ' ' . $row['AUTHOR'] . '</a></div>';
 				}
          break;
 
@@ -30,10 +31,10 @@ if (isset($_GET['bookCat'])){
 			$results = $pdo->query('SELECT * FROM BOOK WHERE category = "Computer Communication"');
             foreach ($results as $row)
 				{
-					echo '<div class = "dataSearch"><p>
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
 					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
 					'<ul>Title: ' . $row['TITLE'] .
-					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
 				}
          break;
 
@@ -42,10 +43,10 @@ if (isset($_GET['bookCat'])){
 			$results = $pdo->query('SELECT * FROM BOOK WHERE category = "Java"');
             foreach ($results as $row)
 				{
-					echo '<div class = "dataSearch"><p>
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
 					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
 					'<ul>Title: ' . $row['TITLE'] .
-					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
 				}
          break;
 
@@ -54,10 +55,10 @@ if (isset($_GET['bookCat'])){
 
             foreach ($results as $row)
 				{
-					echo '<div class = "dataSearch"><p>
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
 					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
 					'<ul>Title: ' . $row['TITLE'] .
-					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
 				}
          break;
 
@@ -65,10 +66,11 @@ if (isset($_GET['bookCat'])){
 			$results = $pdo->query('SELECT * FROM BOOK WHERE category = "WebDesign"');
             foreach ($results as $row)
 				{
-					echo '<div class = "dataSearch"><p>
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
 					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
 					'<ul>Title: ' . $row['TITLE'] .
-					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
+
 				}
          break;
 
@@ -77,10 +79,10 @@ if (isset($_GET['bookCat'])){
 			$results = $pdo->query('SELECT * FROM BOOK WHERE category = "Software Engineering"');
             foreach ($results as $row)
 			  {
-					echo '<div class = "dataSearch"><p>
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
 					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
 					'<ul>Title: ' . $row['TITLE'] .
-					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
 				}
          break;
 
@@ -88,10 +90,10 @@ if (isset($_GET['bookCat'])){
 			$results = $pdo->query('SELECT * FROM BOOK WHERE category = "Problem Solving"');
             foreach ($results as $row)
             {
-					echo '<div class = "dataSearch"><p>
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
 					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
 					'<ul>Title: ' . $row['TITLE'] .
-					'<ul>Author: ' . $row['AUTHOR'] . '</p></div>';
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
             }
          break;
 
@@ -119,7 +121,8 @@ $bookResults = $books->fetchAll(PDO::FETCH_ASSOC);
 
 				foreach ($bookResults as $results)
 				{
-				echo '<div class = "dataSearch">
+				echo '<a href="book_page.php?ISBN=' . $results['ISBN'] . '">
+							<div class = "dataSearch">
 								<p>
 									<img class="resize" src= '
 										. $results['IMAGE'] .
@@ -129,7 +132,8 @@ $bookResults = $books->fetchAll(PDO::FETCH_ASSOC);
 										. $results['ISBN'] . " - £"
 										. $results['PRICE'] .
 							 '</p>
-					</div>';
+							</div>
+					</a>';
 				}
 
 
