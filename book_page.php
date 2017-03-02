@@ -23,12 +23,15 @@ if (isset($_GET['ISBN']))
 							  . $row['AUTHOR'] . "
 						<p> " . '<img class="resize" src="'
                 . $row['IMAGE'] . '">'
-                . $row['ISBN'] . '<br>' . "£" 
+                . $row['ISBN'] . '<br>' . "£"
 								. $row['PRICE'] . '
 						<p>'
 								. $row['SYNOPSIS'] .
-
            '</p>
+					 <p>
+					 	<a href="wishlist.php"><img src="images/wishlist.png" alt = "wishlist"></a>
+					 <a href="add_basket.php"><img src="images/basket.jpg" alt = "basket"></a>
+					 </p>
         </div>';
   }
 }
