@@ -1,7 +1,6 @@
 
 <?php
 require 'head.php';
-
 require 'db.php';
 
 //If a person to edit is specified, display the form and load the persons's information into it
@@ -18,20 +17,30 @@ if (isset($_GET['ISBN']))
   foreach ($results as $row)
   {
     echo '<div class = "dataSearch">
-            <p>'
-							  . $row['TITLE'] . " - "
-							  . $row['AUTHOR'] . "
-						<p> " . '<img class="resize" src="'
-                . $row['IMAGE'] . '">'
-                . $row['ISBN'] . '<br>' . "£"
-								. $row['PRICE'] . '
-						<p>'
-								. $row['SYNOPSIS'] .
-           '</p>
-					 <p>
-					 	<a href="wishlist.php"><img src="images/wishlist.png" alt = "wishlist"></a>
-					 <a href="add_basket.php"><img src="images/basket.jpg" alt = "basket"></a>
-					 </p>
+            		<div class = "bookTitle"> <b>Title: </b>'
+							  		. $row['TITLE'] . " - "
+							  		. $row['AUTHOR'] . '<p><b>ISBN: </b>'
+										. $row['ISBN'] .
+								'</p>
+					</div>' .
+
+					'<div class = "bookImage"><img class="resize" src="'
+                	. $row['IMAGE'] . '"
+					</div>
+					<div class = "bookBlurb"><b>Synopsis: </b>'
+					. $row['SYNOPSIS'] .
+		       		'
+					</div>
+					<div class = "bookFoot">
+						<p class ="price">
+								 		<b>Price :</b>£'
+										. $row['PRICE'] .'
+
+					 					<p><a href="wishlist.php"><img src="images/wishlist.png" alt = "wishlist"></a>
+					 					<a href="add_basket.php"><img src="images/basket.jpg" alt = "basket"></a></p>
+						</p>
+					</div>
+					</div>
         </div>';
   }
 }
