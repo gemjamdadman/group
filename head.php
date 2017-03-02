@@ -33,12 +33,16 @@ $pdo = new PDO('mysql:dbname=' . $schema . ';host=' . $server, $username, $passw
       </form>
   </div>
 
+
+	
     <p class = "register">
-        <a href = "register.php">Sign in / Sign up</a>
+        <a href = "login.php">Sign in</a>
+        <a href = "register.php">Sign up</a>
+
     </p>
 
     <p class = "basket">
-        <a href = "wishlist.php">
+        <a href = "basket.php">
             <img src = "images/basket.jpg" alt = "basket"><br>Basket
         </a>
     </p>
