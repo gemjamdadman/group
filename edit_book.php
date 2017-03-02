@@ -1,14 +1,11 @@
 
 <?php
-require 'head.php'; ?>
-
-
-
-      <?php
+require 'head.php';
 require 'db.php';
 
 //If a person to edit is specified, display the form and load the persons's information into it
-if (isset($_GET['book'])) {
+if (isset($_GET['book']))
+	{
 	$stmt = $pdo->prepare('SELECT * FROM BOOK WHERE ISBN = :ISBN');
 
 	$criteria = [
@@ -100,7 +97,4 @@ else {
 	$stmt->execute($criteria);
 	header('Location: list_book.php');
 }
-?>
-
-<?php
 require 'foot.php'; ?>
