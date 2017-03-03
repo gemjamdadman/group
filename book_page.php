@@ -21,10 +21,9 @@ if (isset($_GET['ISBN']))
 							  		. $row['TITLE'] . " - "
 							  		. $row['AUTHOR'] . '<p><b>ISBN: </b>'
 										. $row['ISBN'] .
-								'</p>
-					</div>' .
+					'</div>' .
 
-					'<div class = "bookImage"><img class="resize" src="'
+					'<div class = "bookImage"><img class="bookResize" src="'
                 	. $row['IMAGE'] . '"
 					</div>
 					<div class = "bookBlurb"><b>Synopsis: </b>'
@@ -36,8 +35,9 @@ if (isset($_GET['ISBN']))
 								 		<b>Price :</b>£'
 										. $row['PRICE'] .'
 
-					 					<p><a href="wishlist.php"><img src="images/wishlist.png" alt = "wishlist"></a>
-					 					<a href="add_basket.php"><img src="images/basket.jpg" alt = "basket"></a></p>
+					 					<p class = "add"><a href="wishlist.php"><img src="images/wishlist.png" alt = "wishlist"></a>
+					 					<p class = "add"><a href="add_basket.php"><img src="images/basket.jpg" alt = "basket"></a>
+										</p>
 						</p>
 					</div>
 					</div>
