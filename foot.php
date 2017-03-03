@@ -5,6 +5,8 @@
   <a href = "info.php">Ordering</a><br>
   <a href = "info.php">Delivery</a></p>
 <p class = "info">
+
+  <a href = "feedback.php">Feedback</a></br>
   <a href = "info.php">Returns</a></br>
   <a href = "info.php">Terms & Conditions</a></br>
   <a href = "info.php">Contact us</a></br></p>
@@ -16,7 +18,7 @@
   <a href = "https://plus.google.com/"><img src = "images/google.png" alt = "Google+"></a>
 </p>
 <hr>
-<p>  © Andy Lamb, Ben Perrin, Michael Pham, Ha Nguyen, Jack O'Halloran<br>
+<p class = "copy">  © Andy Lamb, Ben Perrin, Michael Pham, Ha Nguyen, Jack O'Halloran<br>
   Computing group project: University of Northampton 2017
 </p>
 </div>

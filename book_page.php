@@ -4,7 +4,6 @@ require 'head.php';
 require 'db.php';
 
 //If a person to edit is specified, display the form and load the persons's information into it
-
 if (isset($_GET['ISBN']))
 {
 	 $stmt = $pdo->prepare('SELECT * FROM BOOK WHERE ISBN = :ISBN');
@@ -22,10 +21,9 @@ if (isset($_GET['ISBN']))
 							  		. $row['TITLE'] . " - "
 							  		. $row['AUTHOR'] . '<p><b>ISBN: </b>'
 										. $row['ISBN'] .
-								'</p>
-					</div>' .
+					'</div>' .
 
-					'<div class = "bookImage"><img class="resize" src="'
+					'<div class = "bookImage"><img class="bookResize" src="'
                 	. $row['IMAGE'] . '"
 					</div>
 					<div class = "bookBlurb"><b>Synopsis: </b>'
@@ -37,15 +35,15 @@ if (isset($_GET['ISBN']))
 								 		<b>Price :</b>£'
 										. $row['PRICE'] .'
 
-					 					<p><a href="wishlist.php"><img src="images/wishlist.png" alt = "wishlist"></a>
-					 					<a href="add_basket.php"><img src="images/basket.jpg" alt = "basket"></a></p>
+					 					<p class = "add"><a href="wishlist.php"><img src="images/wishlist.png" alt = "wishlist"></a>
+					 					<p class = "add"><a href="add_basket.php"><img src="images/basket.jpg" alt = "basket"></a>
+										</p>
 						</p>
 					</div>
 					</div>
-				
-		</div>';
-  }  
+        </div>';
+  }
 }
-require 'customer_review.php';
+
 require 'foot.php';
 ?>
