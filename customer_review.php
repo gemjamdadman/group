@@ -1,12 +1,4 @@
-<?php 
-require 'head.php';
-require ('db.php');
-
- // this is the connection to the database file so the functions can acceess the information;
-
- ?>
-
-  <form action="" method="post">
+  <form action="book_page.php" method="post">
     <!-- creates the form of a customer review -->
 
 
@@ -55,24 +47,8 @@ require ('db.php');
     </select><!-- end select tag -->
 
 
-    <p>Click to submit <input name="customer_submit" type="submit" value=
-    "Submit"></p>
+    <p>Click to submit <input name="submit" type="submit" value="Submit"></p>
     <!-- creates a submit button -->
   </form>
   <!-- closes form tagt -->
-  <?php
 
-if (isset($_POST['customer_submit']))
- $stmt = $pdo->prepare('INSERT INTO person (USER_EMAIL, BOOK_ISBN, TEXT_REVIEW, REVIEW_RATING, REVIEW_DATE)
- VALUES (:USER_EMAIL, :BOOK_ISBN, :TEXT_REVIEW, :REVIEW_RATING, :REVIEW_DATE)
-');
-$criteria = [
- 'USER_EMAIL' => $_POST['USER_EMAIL'],
- 'BOOK_ISBN' => $_POST['surname'],
- 'TEXT_REVIEW' => $_POST['email'],
- 'REVIEW_RATING' => $_POST['birthday']
- 'REVIEW_DATE' => date("Y-m-d H:i:s");
-];
-$stmt->execute($criteria);
-  ?>
-<?php require 'foot.php'; ?>
