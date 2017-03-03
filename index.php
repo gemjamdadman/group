@@ -1,5 +1,7 @@
 <?php
 require 'head.php';
-require 'main.php';
+
+
+require 'indexMain.php';
 require 'foot.php';
 ?>
