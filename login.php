@@ -16,7 +16,7 @@
 
 			if (password_verify($_POST['PASSWORD'], $row['PASSWORD'])) {
 				$_SESSION['loggedin'] = $row['EMAIL'];
-				header('Location: http://194.81.104.22/~15413410/profile.php?EMAIL=' . $row['EMAIL'] );
+				eader('Location: http://194.81.104.22/~15414599/profile.php ');
 			}
 		}
 		if (isset($_POST['LOGIN']))

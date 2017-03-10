@@ -1,11 +1,13 @@
-
 <?php
 require 'head.php';
 require 'db.php';
+session_start();
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+	{
 
 //If a person to edit is specified, display the form and load the persons's information into it
-if (isset($_GET['book']))
-	{
+if (isset($_GET['book'])) {
 	$stmt = $pdo->prepare('SELECT * FROM BOOK WHERE ISBN = :ISBN');
 
 	$criteria = [
@@ -97,4 +99,9 @@ else {
 	$stmt->execute($criteria);
 	header('Location: list_book.php');
 }
-require 'foot.php'; ?>
+	}
+else { 
+    echo '<p class = "feature">You are not logged in. <a href="login.php">Click here to log in</a></p>';
+}
+require 'foot.php';
+?>

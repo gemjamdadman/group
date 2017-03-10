@@ -1,10 +1,10 @@
 <?php
 require 'head.php';
+require 'db.php';
+session_start();
 
- // gets the admin page
-
- ?><?php
-
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+{
 // Abdul Khan Published on Aug 5, 2014. E-Commerce Website in PHP & MySQL [Video] Available at :< https://www.youtube.com/watch?v=Gsl92TTawls&list=PL3oMl9a6mutmWThi6I3Wsz9uL8xWI7Epz > [Accessed 16 December 2016].
 
 if (isset($_POST['submit']))
@@ -45,13 +45,11 @@ if (isset($_POST['submit']))
     <input type = "submit" name = "submit" value= "Add">
    </form>
    </div>
-   <?php
-   }
-
-?>
 <?php
-require 'foot.php';
-
- // gets the admin page
-
- ?>
+   }
+}
+else { 
+    echo '<p class = "feature">You are not logged in. <a href="login.php">Click here to log in</a></p>';
+}
+	require 'foot.php';
+?>
