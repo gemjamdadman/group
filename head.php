@@ -6,7 +6,7 @@ $password = 'general';
 $schema = 'db_general_1617';
 
 $pdo = new PDO('mysql:dbname=' . $schema . ';host=' . $server, $username, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
+session_start();
  ?>
 
 
@@ -34,11 +34,20 @@ $pdo = new PDO('mysql:dbname=' . $schema . ';host=' . $server, $username, $passw
   </div>
 
 
-	
-    <p class = "register">
-        <a href = "login.php">Sign in</a>
-        <a href = "register.php">Sign up</a>
-
+<?php	
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+	{
+	echo "<p class = register>
+        <a href = logout.php>logout</a>";
+	}   
+ 
+else
+{
+	echo "<p class = register>
+        <a href = 'login.php'>Sign in</a>
+        <a href = 'register.php'>Sign up</a>";
+}
+?>
     </p>
 
     <p class = "basket">

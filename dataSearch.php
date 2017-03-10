@@ -19,129 +19,82 @@ if (isset($_GET['bookCat'])){
         $results = $pdo->query('SELECT * FROM BOOK WHERE category = "Database"');
             foreach ($results as $row)
 				{
-					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '">
-										<div class = "dataSearch"><p>
-												<img class="resize" src= ' . $row['IMAGE'] . '> .
-												<div class = "sideTitle">
-														Title: ' . $row['TITLE'] .'</br>
-					              		Author: ' . $row['AUTHOR'] .'</p>
-														ISBN:' . $row['ISBN'] .
-												'</div>
-					         </div>
-					      </a>';
-
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
+				<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
+					'<ul>Title: ' . $row['TITLE'] .
+					'<ul>Author: ' . $row['AUTHOR'] . '</div></a>';
+					//'<ul><a href="dataSearch.php?book=' . $row['ISBN'] . '">' . $row['TITLE'] . ' ' . $row['AUTHOR'] . '</a></div>';
 				}
          break;
 
 			case 'Networking':
 			$results = $pdo->query('SELECT * FROM BOOK WHERE category = "Computer Communication"');
             foreach ($results as $row)
-						{
-							echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '">
-												<div class = "dataSearch"><p>
-														<img class="resize" src= ' . $row['IMAGE'] . '> .
-														<div class = "sideTitle">
-																Title: ' . $row['TITLE'] .'</br>
-							              		Author: ' . $row['AUTHOR'] .'</p>
-																ISBN:' . $row['ISBN'] .
-														'</div>
-							         </div>
-							      </a>';
-
-						}
+				{
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
+					'<ul>Title: ' . $row['TITLE'] .
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
+				}
          break;
 
 
 			case 'Java':
 			$results = $pdo->query('SELECT * FROM BOOK WHERE category = "Java"');
             foreach ($results as $row)
-						{
-							echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '">
-												<div class = "dataSearch"><p>
-														<img class="resize" src= ' . $row['IMAGE'] . '> .
-														<div class = "sideTitle">
-																Title: ' . $row['TITLE'] .'</br>
-							              		Author: ' . $row['AUTHOR'] .'</p>
-																ISBN:' . $row['ISBN'] .
-														'</div>
-							         </div>
-							      </a>';
-
-						}
+				{
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
+					'<ul>Title: ' . $row['TITLE'] .
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
+				}
          break;
 
 			case 'Systems':
 			$results = $pdo->query('SELECT * FROM BOOK WHERE category = "Operating Systems"');
 
             foreach ($results as $row)
-						{
-							echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '">
-												<div class = "dataSearch"><p>
-														<img class="resize" src= ' . $row['IMAGE'] . '> .
-														<div class = "sideTitle">
-																Title: ' . $row['TITLE'] .'</br>
-							              		Author: ' . $row['AUTHOR'] .'</p>
-																ISBN:' . $row['ISBN'] .
-														'</div>
-							         </div>
-							      </a>';
-
-						}
+				{
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
+					'<ul>Title: ' . $row['TITLE'] .
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
+				}
          break;
 
 			case 'WebDesign':
 			$results = $pdo->query('SELECT * FROM BOOK WHERE category = "WebDesign"');
             foreach ($results as $row)
-						{
-							echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '">
-												<div class = "dataSearch"><p>
-														<img class="resize" src= ' . $row['IMAGE'] . '> .
-														<div class = "sideTitle">
-																Title: ' . $row['TITLE'] .'</br>
-							              		Author: ' . $row['AUTHOR'] .'</p>
-																ISBN:' . $row['ISBN'] .
-														'</div>
-							         </div>
-							      </a>';
+				{
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
+					'<ul>Title: ' . $row['TITLE'] .
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
 
-						}
+				}
          break;
 
 
 			case 'SoftEng':
 			$results = $pdo->query('SELECT * FROM BOOK WHERE category = "Software Engineering"');
             foreach ($results as $row)
-						{
-							echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '">
-												<div class = "dataSearch"><p>
-														<img class="resize" src= ' . $row['IMAGE'] . '> .
-														<div>
-																Title: ' . $row['TITLE'] .'</br>
-							              		Author: ' . $row['AUTHOR'] .'</p>
-																ISBN:' . $row['ISBN'] .
-														'</div>
-							         </div>
-							      </a>';
-
-						}
+			  {
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
+					'<ul>Title: ' . $row['TITLE'] .
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
+				}
          break;
 
 		case 'Problem':
 			$results = $pdo->query('SELECT * FROM BOOK WHERE category = "Problem Solving"');
             foreach ($results as $row)
-						{
-							echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '">
-												<div class = "dataSearch"><p>
-														<img class="resize" src= ' . $row['IMAGE'] . '> .
-														<div class = "sideTitle">
-																Title: ' . $row['TITLE'] .'</br>
-							              		Author: ' . $row['AUTHOR'] .'</p>
-																ISBN:' . $row['ISBN'] .
-														'</div>
-							         </div>
-							      </a>';
-
-						}
+            {
+					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
+					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
+					'<ul>Title: ' . $row['TITLE'] .
+					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
+            }
          break;
 
 		default:
@@ -173,10 +126,10 @@ $bookResults = $books->fetchAll(PDO::FETCH_ASSOC);
 								<p>
 									<img class="resize" src= '
 										. $results['IMAGE'] .
-								 '>'
+								 '>' . " "
 										. $results['TITLE'] . " - "
-										. $results['AUTHOR'] . "<p>"
-										. $results['ISBN'] . " <p> £"
+										. $results['AUTHOR'] . " - "
+										. $results['ISBN'] . " - £"
 										. $results['PRICE'] .
 							 '</p>
 							</div>

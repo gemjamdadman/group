@@ -1,4 +1,26 @@
-  <form action="book_page.php" method="post">
+	  <?php
+  /*
+  
+if (isset($_POST['customer_submit']))
+{
+ $stmt = $pdo->prepare('INSERT INTO REVIEW (USER_EMAIL, BOOK_ISBN, TEXT_REVIEW, REVIEW_RATING, REVIEW_DATE)
+ VALUES (:USER_EMAIL, :BOOK_ISBN, :TEXT_REVIEW, :REVIEW_RATING, :REVIEW_DATE)');
+$criteria = [
+ 'USER_EMAIL' => $_POST['USER_EMAIL'],
+ 'BOOK_ISBN' => $_POST['BOOK_ISBN'],
+ 'TEXT_REVIEW' => $_POST['TEXT_REVIEW'],
+ 'REVIEW_RATING' => $_POST['REVIEW_RATING'],
+'REVIEW_DATE' => $_POST['REVIEW_DATE']
+ ];
+
+stmt->execute($criteria);
+ echo 'Registration successful'; //says the data was submitted
+   }
+  else
+   { //else will get the form*/
+?>
+			
+			<form action="" method="post">
     <!-- creates the form of a customer review -->
 
 
@@ -8,7 +30,7 @@
      <input name="USER_EMAIL" type="text">
     <!-- creates a input to put data inside-->
      BOOK_ISBN: <!-- creates heading -->
-     <input name="BOOK_ISBN" type="text">
+<input name="ISBN" type="text"  value="<?php echo $row['ISBN']; ?>">
     <!-- creates a input to put data inside-->
     TEXT_REVIEW:<br />
     <!-- creates heading -->
@@ -45,10 +67,16 @@
         5
       </option><!-- option for select -->
     </select><!-- end select tag -->
-
-
-    <p>Click to submit <input name="submit" type="submit" value="Submit"></p>
+ <br />
+    REVIEW_DATE:<br />
+   <input type = "date" name = "REVIEW_DATE"></br>
+    <p>Click to submit <input name="customer_submit" type="submit" value=
+    "Submit"></p>
     <!-- creates a submit button -->
   </form>
   <!-- closes form tagt -->
-
+<?php/*
+   }
+*/
+?>
+<?php require 'foot.php'; ?>

@@ -18,7 +18,7 @@
   <a href = "https://plus.google.com/"><img src = "images/google.png" alt = "Google+"></a>
 </p>
 <hr>
-<p class = "copy">  © Andy Lamb, Ben Perrin, Michael Pham, Ha Nguyen, Jack O'Halloran<br>
+<p>  © Andy Lamb, Ben Perrin, Michael Pham, Ha Nguyen, Jack O'Halloran<br>
   Computing group project: University of Northampton 2017
 </p>
 </div>
