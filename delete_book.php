@@ -1,10 +1,5 @@
 <?php
 require 'head.php';
-require 'db.php';
-session_start();
-
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-{
 if (isset($_POST['submit'])) {
 	require ('db.php');
 	$delete = $pdo->query('DELETE FROM BOOK WHERE ISBN =' . $_POST['CATEGORY']);
@@ -36,9 +31,5 @@ if (isset($_POST['submit'])) {
 </div>
 <?php
    }
-}
-else { 
-    echo '<p class = "feature">You are not logged in. <a href="login.php">Click here to log in</a></p>';
-}
 	require 'foot.php';
 ?>

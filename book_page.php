@@ -4,6 +4,7 @@
 
 require 'head.php';
 require 'db.php';
+session_start();
 //If a person to edit is specified, display the form and load the persons's information into it
 
 if (isset($_POST['customer_submit']))
@@ -58,7 +59,7 @@ $stmt->execute($criteria);
 		}
 		
 		
-$results = $pdo->query('SELECT * FROM REVIEW WHERE BOOK_ISBN =' . $_GET['ISBN']);
+$results = $pdo->query('SELECT * FROM REVIEW WHERE BOOK_ISBN = ' . $_GET['ISBN']);
     foreach ($results as $row)
 {
   echo 
@@ -69,6 +70,10 @@ $results = $pdo->query('SELECT * FROM REVIEW WHERE BOOK_ISBN =' . $_GET['ISBN'])
 
 
 }
+?>
+<?php 
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+	{
 ?>
 <div class = "customer">
 	<form action="" method="post">
@@ -122,4 +127,8 @@ $results = $pdo->query('SELECT * FROM REVIEW WHERE BOOK_ISBN =' . $_GET['ISBN'])
     <p>Click to submit <input name="customer_submit" type="submit" value="Submit"></p>
     <!-- creates a submit button -->
   </form>
+
 </div>
+<?php 
+}
+?>

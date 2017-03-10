@@ -1,10 +1,8 @@
+
 <?php
 require 'head.php';
-require 'db.php';
-session_start();
+require ('db.php');
 
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-{
 if (isset($_POST['send']))
    {
    $stmt = $pdo->prepare('INSERT INTO BOOK (ISBN, TITLE, AUTHOR, PRICE, SYNOPSIS, IMAGE, CATEGORY, PUBLICATION_DATE, QUANTITY)
@@ -58,11 +56,8 @@ if (isset($_POST['send']))
       </form>
   </div>
 
-<?php
+   <?php
    }
-}
-else { 
-    echo '<p class = "feature">You are not logged in. <a href="login.php">Click here to log in</a></p>';
-}
-	require 'foot.php';
+
 ?>
+<?php require 'foot.php'; ?>
