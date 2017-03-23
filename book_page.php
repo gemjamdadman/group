@@ -12,7 +12,7 @@ if (isset($_POST['customer_submit']))
 $stmt = $pdo->prepare('INSERT INTO REVIEW (USER_EMAIL, BOOK_ISBN, TEXT_REVIEW, REVIEW_RATING, REVIEW_DATE)
 						 VALUES (:USER_EMAIL, :BOOK_ISBN, :TEXT_REVIEW, :REVIEW_RATING, :REVIEW_DATE )');
 $criteria = [
-'USER_EMAIL' => $_POST['USER_EMAIL'],
+'USER_EMAIL' => $_SESSION['loggedin'],
 'BOOK_ISBN' => $_GET['ISBN'] ,
 'TEXT_REVIEW' => $_POST['TEXT_REVIEW'] ,
 'REVIEW_RATING' => $_POST['REVIEW_RATING'],
@@ -82,8 +82,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
     <h2>Customer review</h2>
     <!-- creates heading -->
-    USER_EMAIL: <!-- creates heading -->
-     <input name="USER_EMAIL" type="text">
     <!-- creates a input to put data inside-->
     TEXT_REVIEW:<br />
     <!-- creates heading -->
