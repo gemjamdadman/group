@@ -51,6 +51,7 @@ if (isset($_SESSION['loggedin']))
 else {
 	$stmt = $pdo->prepare('UPDATE CUSTOMER
 				 SET EMAIL = :EMAIL, 
+				 PASSWORD = :PASSWORD,
 				  FIRST_NAME = :FIRST_NAME,
 				  SURNAME = :SURNAME,
 				  ADDRESS = :ADDRESS,
@@ -60,13 +61,13 @@ else {
 	$criteria = [
 		'EMAIL' => $_POST['EMAIL'],
 		'FIRST_NAME' => $_POST['FIRST_NAME'],
+		'PASSWORD' => $_POST['PASSWORD'],
 		'SURNAME' => $_POST['SURNAME'],
-		'ADDRESS' => $_POST['ADDRESS'],
-		'originalEMAIL' => $_POST['originalEMAIL']
+		'ADDRESS' => $_POST['ADDRESS']
 	];
 
 	$stmt->execute($criteria);
-	header('Location: Edit_Account_Details.php');
+	header('Location: profile.php');
 }
 
 require 'foot.php'; ?>

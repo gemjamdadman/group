@@ -16,7 +16,11 @@
 
 			if (password_verify($_POST['PASSWORD'], $row['PASSWORD'])) {
 				$_SESSION['loggedin'] = $row['EMAIL'];
-				eader('Location: http://194.81.104.22/~15414599/profile.php ');
+				header('Location: http://194.81.104.22/~15413410/profile.php ');
+			}
+			else
+			{
+				echo '<a href="login.php" class = "dataSearch">Incorrect username or password. Click here to try again</a>';
 			}
 		}
 		if (isset($_POST['LOGIN']))
@@ -33,7 +37,7 @@
 
 			if (password_verify($_POST['PASSWORD'], $row['PASSWORD'])) {
 				$_SESSION['loggedin'] = $row['EMAIL'];
-				 header('Location: http://194.81.104.22/~15414599/admin.php ');//goes to the admin area 
+				 header('Location: http://194.81.104.22/~15413410/admin.php ');//goes to the admin area 
 			}
 		}
 	else
