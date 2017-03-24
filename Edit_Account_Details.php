@@ -1,17 +1,14 @@
 <?php
 require 'head.php';
 require 'db.php';
-
 //If a person to edit is specified, display the form and load the persons's information into it
 if (isset($_SESSION['loggedin']))
 	{
 	$stmt = $pdo->prepare('SELECT * FROM CUSTOMER WHERE EMAIL = :EMAIL');
-
 	$criteria = [
 		'EMAIL' => $_SESSION['loggedin']
 	];
 	$stmt->execute($criteria);
-
 	$row = $stmt->fetch();
 ?>
 <div class = "dataSearch">
@@ -57,7 +54,6 @@ else {
 				  ADDRESS = :ADDRESS,
 				 WHERE EMAIL = :originalEMAIL
 	');
-
 	$criteria = [
 		'EMAIL' => $_POST['EMAIL'],
 		'FIRST_NAME' => $_POST['FIRST_NAME'],
@@ -65,9 +61,7 @@ else {
 		'SURNAME' => $_POST['SURNAME'],
 		'ADDRESS' => $_POST['ADDRESS']
 	];
-
 	$stmt->execute($criteria);
 	header('Location: profile.php');
 }
-
 require 'foot.php'; ?>

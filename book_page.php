@@ -6,20 +6,21 @@ require 'head.php';
 require 'db.php';
 session_start();
 //If a person to edit is specified, display the form and load the persons's information into it
-
+$date = date('Y-m-d H:i:s');
 if (isset($_POST['customer_submit']))
 {
 $stmt = $pdo->prepare('INSERT INTO REVIEW (USER_EMAIL, BOOK_ISBN, TEXT_REVIEW, REVIEW_RATING, REVIEW_DATE)
 						 VALUES (:USER_EMAIL, :BOOK_ISBN, :TEXT_REVIEW, :REVIEW_RATING, :REVIEW_DATE )');
 $criteria = [
-'USER_EMAIL' => $_SESSION['loggedin'],
+'USER_EMAIL' => $_POST['USER_EMAIL'],
 'BOOK_ISBN' => $_GET['ISBN'] ,
 'TEXT_REVIEW' => $_POST['TEXT_REVIEW'] ,
 'REVIEW_RATING' => $_POST['REVIEW_RATING'],
-'REVIEW_DATE' => $_POST['REVIEW_DATE']
+'REVIEW_DATE' => $date
 ];
 
 $stmt->execute($criteria);
+header('Location: http://194.81.104.22/~15413410/book_page.php?ISBN=' . $_GET['ISBN']);
 
 } else if (isset($_GET['ISBN'])) {
 	 $stmt = $pdo->prepare('SELECT * FROM BOOK WHERE ISBN = :ISBN');
@@ -45,10 +46,10 @@ $stmt->execute($criteria);
 					</div>
 					<div class = "bookFoot">
 						<p class ="price">
-								 		<b>Price :</b>Â£'
-										. $row['PRICE'] .'
+								 		<b>Price :</b> £'
+										. $row['PRICE'] .'.00
 					 					<p class = "add"><a href="wishlist.php"><img src="images/wishlist.png" alt = "wishlist"></a>
-					 					<p class = "add"><a href="add_basket.php"><img src="images/basket.jpg" alt = "basket"></a>
+					 					<p class = "add"><a href="basket.php?ISBN=' . $row['ISBN'] . '"><img src="images/basket.jpg" alt = "basket"></a>
 										</p>
 						</p>
 
@@ -57,21 +58,23 @@ $stmt->execute($criteria);
 					</div>
         </div>';
 		}
-		
-		
+
+
 $results = $pdo->query('SELECT * FROM REVIEW WHERE BOOK_ISBN = ' . $_GET['ISBN']);
     foreach ($results as $row)
 {
-  echo 
-  '<ul>Title: ' . $row['TEXT_REVIEW'] .
-  '<ul>Author: ' . $row['USER_EMAIL'] . '</p></div></a>';
+  echo
+  '<ul>Email: ' . $row['USER_EMAIL'] .
+  '<ul>Review: ' . $row['TEXT_REVIEW'] . 
+  '<ul>Rating: ' . $row['REVIEW_RATING'] . 
+  '<ul>Date of Review: ' . $row['REVIEW_DATE'] . '</p></div></a>';
 
 }
 
 
-}
+
 ?>
-<?php 
+<?php
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 	{
 ?>
@@ -82,6 +85,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
     <h2>Customer review</h2>
     <!-- creates heading -->
+    USER_EMAIL: <!-- creates heading -->
+     <input name="USER_EMAIL" type="text">
     <!-- creates a input to put data inside-->
     TEXT_REVIEW:<br />
     <!-- creates heading -->
@@ -119,15 +124,15 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
       </option><!-- option for select -->
     </select><!-- end select tag -->
  <br />
-	REVIEW_DATE: <!-- creates heading -->
-     <input type = "date" name = "REVIEW_DATE"></br>
 
     <p>Click to submit <input name="customer_submit" type="submit" value="Submit"></p>
     <!-- creates a submit button -->
   </form>
 
 </div>
-<?php 
+<?php
 }
+}
+
 require 'foot.php';
 ?>

@@ -32,7 +32,7 @@ if (isset($_GET['bookCat'])){
             foreach ($results as $row)
 				{
 					echo '<a href="book_page.php?ISBN=' . $row['ISBN'] . '"><div class = "dataSearch"><p>
-					<ul><img class="resize" src= ' . $row['IMAGE'] . '>' .
+					<ul><img class="bookResize" src= ' . $row['IMAGE'] . '>' .
 					'<ul>Title: ' . $row['TITLE'] .
 					'<ul>Author: ' . $row['AUTHOR'] . '</p></div></a>';
 				}

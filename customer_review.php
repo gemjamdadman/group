@@ -1,6 +1,6 @@
 	  <?php
   /*
-  
+
 if (isset($_POST['customer_submit']))
 {
  $stmt = $pdo->prepare('INSERT INTO REVIEW (USER_EMAIL, BOOK_ISBN, TEXT_REVIEW, REVIEW_RATING, REVIEW_DATE)
@@ -19,7 +19,7 @@ stmt->execute($criteria);
   else
    { //else will get the form*/
 ?>
-			
+
 			<form action="" method="post">
     <!-- creates the form of a customer review -->
 
@@ -79,4 +79,3 @@ stmt->execute($criteria);
    }
 */
 ?>
-<?php require 'foot.php'; ?>
