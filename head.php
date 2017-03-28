@@ -35,7 +35,7 @@ session_start();
 
 <?php
 if (isset($_SESSION['loggedin']))
-	{	
+	{
 ?>
 	<p class = "register">
         <a href = "profile.php">Profile</a>

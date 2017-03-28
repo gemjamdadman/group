@@ -4,7 +4,6 @@
 
 require 'head.php';
 require 'db.php';
-session_start();
 //If a person to edit is specified, display the form and load the persons's information into it
 $date = date('Y-m-d H:i:s');
 if (isset($_POST['customer_submit']))
@@ -65,8 +64,8 @@ $results = $pdo->query('SELECT * FROM REVIEW WHERE BOOK_ISBN = ' . $_GET['ISBN']
 {
   echo
   '<ul>Email: ' . $row['USER_EMAIL'] .
-  '<ul>Review: ' . $row['TEXT_REVIEW'] . 
-  '<ul>Rating: ' . $row['REVIEW_RATING'] . 
+  '<ul>Review: ' . $row['TEXT_REVIEW'] .
+  '<ul>Rating: ' . $row['REVIEW_RATING'] .
   '<ul>Date of Review: ' . $row['REVIEW_DATE'] . '</p></div></a>';
 
 }
