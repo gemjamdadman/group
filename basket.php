@@ -6,7 +6,19 @@ require 'head.php';
 <div class = "dataSearch">
 <p>
   <?php
-  if(isset($_GET['ISBN']))
+  if (isset($_POST['quantity']) && isset($_POST['ISBN'])) {
+    $basket = $_SESSION['basket'];
+
+    if ($_POST['quantity'] == '0') {
+      unset($basket[$_POST['ISBN']]);
+    }
+    $basket[$_POST['ISBN']]->quantity = $_POST['quantity'];
+
+    $basket['quantity'] = getBasketQuantity($basket);
+    updateSessionBasket($basket);
+  }
+
+  if (isset($_GET['ISBN']))
   {
       $stmt = $pdo->query('SELECT * FROM BOOK WHERE ISBN =' . $_GET['ISBN']);
       $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -55,22 +67,32 @@ require 'head.php';
       $itemTotal = $item->price * $item->quantity;
       $total += $itemTotal;
 ?>
-      <tr>
-        <td><a href="basket.php?remove=<?php echo $item->ISBN; ?>">Remove</a></td>
-        <td><?php echo $item->title; ?></td>
-        <td><?php echo $item->author; ?></td>
-        <td>
-          <?php
-            echo "£" . sprintf("%0.2f", $item->price); // http://php.net/manual/en/function.sprintf.php see example 10
-          ?>
-        </td>
-        <td><?php echo $item->quantity; ?></td>
-        <td>
-          <?php
-            echo "£" . sprintf("%0.2f", $itemTotal); // http://php.net/manual/en/function.sprintf.php see example 10
-          ?>
-        </td>
+      <form action="basket.php" method="POST">
+        <tr>
+          <td>
+            <a href="basket.php?remove=<?php echo $item->ISBN; ?>">Remove</a>
+          </td>
+          <td><?php echo $item->title; ?></td>
+          <td><?php echo $item->author; ?></td>
+          <td>
+            <?php
+              echo "£" . sprintf("%0.2f", $item->price); // http://php.net/manual/en/function.sprintf.php see example 10
+            ?>
+          </td>
+          <td>
+            <div class="formElemContainer">
+              <input type="hidden" name="ISBN" value="<?php echo $item->ISBN; ?>">
+              <input type="number" style="display: inline-block; width: 60%; margin-left: 5px;" name="quantity" value="<?php echo $item->quantity; ?>">
+              <input type="submit" style="display: inline-block; width: 30%;" value="Update">
+            </div>
+          </td>
+          <td>
+            <?php
+              echo "£" . sprintf("%0.2f", $itemTotal); // http://php.net/manual/en/function.sprintf.php see example 10
+            ?>
+          </td>
       </tr>
+    </form>
 <?php
     }
   }
